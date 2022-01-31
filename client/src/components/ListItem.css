@@ -1,0 +1,11 @@
+.item-card {
+    padding: 1rem;
+    background: red;
+    /* border: solid 1px black; */
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.item-card p:first-child {
+    margin-bottom: 10px;
+}
