@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
+import Loading from './components/Loading'
 import ListPage from './page/ListPage';
 import './App.css';
 
 function App() {
 
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
+  const [loadingData, setLoadingData] = useState(true);
 
   const DUMMY_DATA = [
     {
@@ -58,14 +60,22 @@ function App() {
         })
         console.log("newObj", newObj)
         // return newObj
-        setData(newObj)
+        setData(newObj);
+        setLoadingData(false);
       } catch(err) {
         console.log("my error",err)
       }
     };
-
     getUsers();
   }, [])
+
+  if (loadingData) {
+    return(
+      <div>
+        <Loading />
+      </div>
+    )
+  }
 
   return (
     <div className="App">
